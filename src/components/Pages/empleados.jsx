@@ -20,7 +20,7 @@ const Empleados = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   // Actualiza la URL base
-  const API_URL = 'http://localhost:5000/api';
+  const API_URL = import.meta.env.VITE_URL + 'api';
 
   // Obtener empleados
   const getEmpleados = async () => {

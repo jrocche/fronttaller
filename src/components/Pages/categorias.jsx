@@ -20,18 +20,6 @@ function Categorias() {
   // Nueva variable de estado para el término de búsqueda
   const [searchTerm, setSearchTerm] = useState('');
 
-  const [selectedServicios, setSelectedServicios] = useState([]);
-
-  const handleServicioChange = (id_servicio) => {
-    setSelectedServicios(prev => {
-      if (prev.includes(id_servicio)) {
-        return prev.filter(id => id !== id_servicio);
-      } else if (prev.length < 3) {
-        return [...prev, id_servicio];
-      }
-      return prev;
-    });
-  };
 
   const obtenerServicios = async () => {
     try {
@@ -100,11 +88,6 @@ function Categorias() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const cotizacionData = {
-      ...formData,
-      servicios: selectedServicios // Enviar los servicios seleccionados
-    };
-
     try {
       const endpoint = editingServicio 
         ? `${URL}servicios/${editingServicio.id_servicio}`
@@ -118,21 +101,21 @@ function Categorias() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify(cotizacionData)
+        body: JSON.stringify(formData) // Aquí solo enviamos formData, sin servicios
       });
 
       if (!response.ok) {
         throw new Error(`Error al ${editingServicio ? 'actualizar' : 'crear'} servicio`);
       }
 
-      await obtenerServicios(); // Recargar la lista de servicios
+      await obtenerServicios();
       handleCloseModal();
-      toast.success(`Servicio ${editingServicio ? 'actualizado' : 'creado'} exitosamente`); // Notificación de éxito
+      toast.success(`Servicio ${editingServicio ? 'actualizado' : 'creado'} exitosamente`);
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Error al guardar el servicio: " + error.message); // Notificación de error
+      toast.error("Error al guardar el servicio: " + error.message);
     }
-  };
+};
 
   const handleDelete = async (id) => {
     if (window.confirm('¿Estás seguro de que deseas eliminar este servicio?')) {
@@ -217,20 +200,6 @@ function Categorias() {
           </table>
         </div>
 
-        <div className="servicios-selector">
-          <h2>Seleccionar Servicios</h2>
-          {servicios.map(servicio => (
-            <div key={servicio.id_servicio}>
-              <input
-                type="checkbox"
-                id={`servicio-${servicio.id_servicio}`}
-                checked={selectedServicios.includes(servicio.id_servicio)}
-                onChange={() => handleServicioChange(servicio.id_servicio)}
-              />
-              <label htmlFor={`servicio-${servicio.id_servicio}`}>{servicio.nombre} - Q{servicio.precio.toFixed(2)}</label>
-            </div>
-          ))}
-        </div>
 
         {showModal && (
           <div className="modal-overlay">

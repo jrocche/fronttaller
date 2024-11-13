@@ -4,6 +4,7 @@ import MainLayout from './MainLayout';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/ordenForm.css';
+import '../styles/listapordenes.css';
 
 
 
