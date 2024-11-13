@@ -58,21 +58,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
     z-index: 1000;
-}
-
-.modal-content {
-    background-color: #b4c6f8;
-    border-radius: 0.5rem;
-    padding: 2rem;
-    width: 100%;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
     max-width: 800px;
-    box-shadow: var(--shadow-md);
-    display: flex; /* Añadido para centrar el contenido */
-    flex-direction: column; /* Añadido para centrar el contenido */
-    align-items: center;
-}
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 
 
 .modal-title {
@@ -88,9 +85,8 @@
 .herramienta-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-}
+    gap: 1rem;
+  }
 
 .form-grid {
     display: grid;
@@ -137,13 +133,15 @@
 
 /* Botones del formulario */
 .form-buttons {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 1rem 0;
+    margin-top: 1rem;
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
-    margin-top: 0rem;
-    padding-top: 0rem;
-    border-top: 1px solid var(--border-color);
-}
+  }
 
 .btn-cancelar {
     padding: 0.5rem 1rem;
@@ -359,5 +357,6 @@
 
 .form-group textarea[name="observaciones"]:focus {
   border-color: var(--primary-color);
-  ring: 2px var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color);
 }
+
