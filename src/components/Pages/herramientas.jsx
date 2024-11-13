@@ -207,7 +207,7 @@ const Herramientas = () => {
 
       {showModal && (
         <div className="modal-overlay">
-          <div className="modal-content">
+          <div className="modal-content" style={{ maxHeight: '90vh', overflowY: 'auto' }}>
             <h2 className="modal-title">
               {modoEdicion ? "Editar Herramienta" : "Nueva Herramienta"}
             </h2>

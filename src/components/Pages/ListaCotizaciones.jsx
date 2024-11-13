@@ -4,6 +4,8 @@ import '../styles/listaCotizaciones.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/cotizacionForm.css';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 function ListaCotizaciones() {
   const [cotizaciones, setCotizaciones] = useState([]);
@@ -426,6 +428,61 @@ function ListaCotizaciones() {
     limpiarFormulario();
   };
 
+  const generarPDF = (cotizacion) => {
+    const doc = new jsPDF();
+    
+    // Configuración de estilos y formato
+    doc.setFontSize(20);
+    doc.text('Cotización', 105, 15, { align: 'center' });
+    
+    // Información del encabezado
+    doc.setFontSize(12);
+    doc.text(`N° Cotización: ${cotizacion.id_cotizacion}`, 15, 30);
+    doc.text(`Cliente: ${cotizacion.nombre_cliente}`, 15, 40);
+    doc.text(`Fecha: ${new Date(cotizacion.fecha).toLocaleDateString()}`, 15, 50);
+    doc.text(`Estado: ${cotizacion.estado}`, 15, 60);
+
+    // Parsear servicios
+    let servicios = [];
+    try {
+      servicios = typeof cotizacion.servicios_detalle === 'string' 
+        ? JSON.parse(cotizacion.servicios_detalle) 
+        : (cotizacion.servicios_detalle || []);
+    } catch (error) {
+      console.error('Error al parsear servicios:', error);
+      servicios = [];
+    }
+
+    // Crear tabla de servicios
+    const serviciosData = servicios.map(servicio => [
+      servicio.nombre,
+      servicio.descripcion,
+      `Q${parseFloat(servicio.precio).toFixed(2)}`
+    ]);
+
+    doc.autoTable({
+      startY: 70,
+      head: [['Servicio', 'Descripción', 'Precio']],
+      body: serviciosData,
+      theme: 'striped',
+      headStyles: { fillColor: [66, 66, 66] },
+      foot: [[
+        'Total',
+        '',
+        `Q${parseFloat(cotizacion.precio).toFixed(2)}`
+      ]],
+      footStyles: { fillColor: [240, 240, 240], textColor: [0, 0, 0], fontStyle: 'bold' }
+    });
+
+    // Agregar pie de página
+    const pageHeight = doc.internal.pageSize.height;
+    doc.setFontSize(10);
+    doc.text('Esta cotización es válida por 25 días.', 105, pageHeight - 20, { align: 'center' });
+    
+    // Guardar PDF
+    doc.save(`Cotizacion_${cotizacion.id_cotizacion}.pdf`);
+  };
+
   return (
     <MainLayout>
       <div>
@@ -506,6 +563,7 @@ function ListaCotizaciones() {
                             <div className="acciones-grupo">
                                 <button onClick={() => seleccionarCotizacion(cotizacion)}>✏️</button>
                                 <button onClick={() => verCarnet(cotizacion)}>👁️</button>
+                                <button onClick={() => generarPDF(cotizacion)}>🖨️</button>
                                 <button onClick={() => eliminarCotizacion(cotizacion.id_cotizacion)}>🗑️</button>
                             </div>
                         </td>
