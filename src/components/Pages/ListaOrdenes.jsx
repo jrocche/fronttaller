@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import MainLayout from './MainLayout';
-import '../styles/ListaOrdenes.css'; 
+//import '../styles/ListaOrdenes.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/ordenForm.css';
