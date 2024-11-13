@@ -1,0 +1,62 @@
+.inventario-container {
+    padding: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #61dafb;
+    border: none;
+    color: white;
+    cursor: pointer;
+    max-width: 200px;
+  }
+  
+  button:hover {
+    background-color: #21a1f1;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  td button {
+    margin-right: 5px;
+    padding: 5px;
+  }
+  
+  td button:nth-child(1) {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  td button:nth-child(2) {
+    background-color: #f44336;
+    color: white;
+  }
+  

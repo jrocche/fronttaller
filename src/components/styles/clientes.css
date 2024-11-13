@@ -1,0 +1,227 @@
+:root {
+  --color-primary: #4a90e2; /* Azul claro */
+  --color-secondary: #d1d8e0; /* Gris claro */
+  --color-accent: #e84118; /* Rojo */
+  --color-background: #f5f6fa; /* Fondo blanco */
+  --color-text: #2f3640; /* Texto oscuro */
+  --color-light: #ffffff; /* Blanco */
+  --color-dark: #353b48; /* Gris oscuro */
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Arial', sans-serif;
+}
+
+.clientes-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  background-color: var(--color-light);
+}
+
+.clientes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--color-secondary);
+  box-shadow: var(--shadow);
+  margin-top: 50px;
+}
+
+.clientes-header h1 {
+  font-size: 32px;
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.nuevo-cliente-btn {
+  background-color: var(--color-primary);
+  color: white;
+  border: none; /* Eliminado */
+  padding: 12px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: none; /* Eliminado */
+}
+
+.nuevo-cliente-btn:hover {
+  background-color: #3a7bd5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.clientes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.cliente-card {
+  background-color: var(--color-light);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 20px;
+}
+
+.cliente-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cliente-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.cliente-card p {
+  margin: 5px 0;
+  color: var(--color-text);
+  font-size: 16px;
+}
+
+.cliente-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.editar-btn, .eliminar-btn, .ver-carnet-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.editar-btn {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.eliminar-btn {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.ver-carnet-btn {
+  background-color: var(--color-dark);
+  color: white;
+}
+
+.editar-btn:hover, .eliminar-btn:hover, .ver-carnet-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--color-light);
+  padding: 30px;
+  border-radius: 15px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: var(--color-dark);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.modal-content input {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.cancelar-btn, .guardar-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.cancelar-btn {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.guardar-btn {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.cancelar-btn:hover, .guardar-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.carnet {
+  text-align: center;
+  background-color: var(--color-light);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cerrar-carnet-btn {
+  margin-top: 25px;
+  padding: 12px 24px;
+  background-color: var(--color-secondary);
+  color: var(--color-dark);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cerrar-carnet-btn:hover {
+  background-color: #b2bec3;
+  transform: translateY(-2px);
+}

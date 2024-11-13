@@ -1,0 +1,175 @@
+:root {
+  --primary-color: #6a4c93;
+  --secondary-color: #8ac926;
+  --background-color: #f0f3f5;
+  --text-color: #333333;
+  --header-color: #1982c4;
+  --border-color: #ced4da;
+  --hover-color: #ffca3a;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.usuario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--header-color);
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nombre-pagina {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.buscar-usuario {
+  width: 40%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.buscar-usuario::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.buscar-usuario:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.nuevo-usuario-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nuevo-usuario-btn:hover {
+  background-color: #78b322;
+  transform: translateY(-2px);
+}
+
+.tabla-usuarios {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-usuarios th, .tabla-usuarios td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tabla-usuarios th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tabla-usuarios tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-usuarios tr:hover {
+  background-color: var(--hover-color);
+}
+
+.estado {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 15px;
+  display: inline-block;
+}
+
+.estado.activo {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.estado.inactivo {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.cancelar-btn, .guardar-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cancelar-btn {
+  background-color: #e63946;
+  color: white;
+}
+
+.cancelar-btn:hover {
+  background-color: #d62828;
+  transform: translateY(-2px);
+}
+
+.guardar-btn {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.guardar-btn:hover {
+  background-color: #78b322;
+  transform: translateY(-2px);
+}

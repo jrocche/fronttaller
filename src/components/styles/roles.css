@@ -1,0 +1,98 @@
+.roles-container {
+    padding: 20px;
+  }
+  
+  .roles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .nuevo-rol-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .tabla-roles {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabla-roles th, .tabla-roles td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tabla-roles th {
+    background-color: #7de7d0;
+  }
+  
+  .editar-btn, .eliminar-btn {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .editar-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+  }
+  
+  .eliminar-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .modal-content input, .modal-content textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .cancelar-btn, .guardar-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .cancelar-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  .guardar-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }

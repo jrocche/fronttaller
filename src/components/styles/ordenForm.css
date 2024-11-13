@@ -1,0 +1,235 @@
+.orden-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .orden-modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .orden-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .orden-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .orden-label {
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .orden-input,
+  .orden-select {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 0.95rem;
+  }
+  
+  .orden-servicios-section {
+    grid-column: span 2;
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+  
+  .orden-servicios-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  
+  .orden-servicio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .orden-remove-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .orden-total {
+    text-align: right;
+    font-weight: 600;
+    color: #374151;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .orden-buttons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .orden-cancel-btn,
+  .orden-submit-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .orden-cancel-btn {
+    background: #ef4444;
+    color: white;
+  }
+  
+  .orden-submit-btn {
+    background: #3b82f6;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .orden-modal-content {
+      width: 95%;
+      padding: 1rem;
+    }
+  
+    .orden-form {
+      grid-template-columns: 1fr;
+    }
+  
+    .orden-servicios-section {
+      grid-column: 1;
+    }
+  }
+  
+  .carnet-titulo {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .carnet-contenido {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .carnet-campo {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .carnet-servicios {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+  
+  .carnet-servicio-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .servicio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .servicio-nombre {
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .servicio-precio {
+    color: #0f766e;
+    font-weight: 600;
+  }
+  
+  .servicio-descripcion {
+    font-size: 0.9rem;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .costo-total {
+    font-weight: 700;
+    color: #0f766e;
+    font-size: 1.1rem;
+  }
+  
+  .carnet-campo {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .carnet-campo:last-child {
+    border-bottom: none;
+  }
+  
+  .carnet-campo strong {
+    color: #1e293b;
+    min-width: 150px;
+    display: inline-block;
+  }
+  
+  .carnet-cerrar-btn {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .carnet-cerrar-btn:hover {
+    background: var(--accent-color);
+  }

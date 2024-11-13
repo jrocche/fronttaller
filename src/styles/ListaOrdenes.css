@@ -1,0 +1,229 @@
+.servicios-container {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.servicio-selector {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.servicio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.costo-total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  text-align: right;
+}
+
+/* Modal y Formulario */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-contenido {
+  background: var(--surface-color);
+  padding: 2rem; /* Ajusta el padding interno */
+  border-radius: 12px;
+  width: 80%; /* Reduce el ancho al 80% */
+  max-width: 800px; /* Ajusta el max-width para que no sea tan grande */
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-titulo {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.formulario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.campo-grupo {
+  margin-bottom: 1.5rem;
+}
+
+.campo-label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.campo-input,
+select,
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: var(--text-primary);
+}
+
+.campo-input:focus,
+select:focus,
+input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Servicios en el modal */
+.servicios-container {
+  grid-column: 1 / -1;
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.servicio-selector {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.servicio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.servicio-header h4 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Botones en servicios */
+.servicio-selector button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--danger-color);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.servicio-selector button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Botón de agregar servicio */
+.agregar-servicio-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.agregar-servicio-btn:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+/* Costo total */
+.costo-total {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* Botones del modal */
+.modal-buttons {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.cancelar-btn,
+.guardar-btn {
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancelar-btn {
+  background: var(--danger-color);
+  color: white;
+}
+
+.guardar-btn {
+  background: var(--success-color);
+  color: white;
+}
+
+.cancelar-btn:hover,
+.guardar-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+
+@media (max-width: 768px) {
+  .modal-contenido {
+    padding: 1.5rem;
+    width: 90%; /* Más compacto en pantallas pequeñas */
+    max-width: 95%;
+  }
+
+  .formulario-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

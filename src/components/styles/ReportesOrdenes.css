@@ -1,0 +1,44 @@
+.reporte-container {
+    padding: 20px;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .reporte-titulo {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
+  
+  .grafico-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .grafico-card h2 {
+    color: #34495e;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos específicos para los gráficos de Recharts */
+  .recharts-wrapper {
+    margin: 0 auto;
+  }
+  
+  .recharts-default-tooltip {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid #ddd !important;
+    border-radius: 5px;
+  }
+  
+  .recharts-tooltip-label {
+    color: #2c3e50 !important;
+    font-weight: bold;
+  }
+  
+  .recharts-tooltip-item {
+    color: #7f8c8d !important;
+  }

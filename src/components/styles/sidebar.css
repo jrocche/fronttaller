@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #F2C94C;
+  --secondary-color: #F2994A;
+  --background-color: #bbcce9;
+  --text-color: #FFFFFF;
+  --hover-color: #4A5568;
+  --submenu-bg: #b9ccf1;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.mod {
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-color);
+  padding: 20px 0;
+  font-size: 1.2em;
+  background-color: var(--background-color);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: var(--background-color);
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 100;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.visible {
+  transform: translateX(0);
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 15px 20px;
+  color: var(--text-color);
+  font-size: 16px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+  background-color: var(--hover-color);
+}
+
+.sidebar ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  color: var(--primary-color);
+}
+
+.submenu {
+  display: none;
+  background-color: var(--submenu-bg);
+  padding-left: 20px;
+}
+
+.sidebar ul li:hover .submenu {
+  display: block;
+}
+
+.submenu li {
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.submenu li a {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.submenu li:hover a {
+  color: var(--secondary-color);
+  opacity: 1;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sidebar ul li {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+
+  .submenu li {
+    padding: 10px 0;
+    font-size: 13px;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1100;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background-color: var(--secondary-color);
+}
+
+@media screen and (max-width: 480px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Scrollbar styles */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--secondary-color);
+}
