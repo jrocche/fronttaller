@@ -265,39 +265,42 @@ const ESTADOS = {
   const crearOrden = async (e) => {
     e.preventDefault();
     try {
+        // Validaciones iniciales
         if (!nuevoOrden.fecha_inicio || !nuevoOrden.fecha_fin) {
             toast.error('Las fechas son requeridas');
             return;
         }
 
-        // Preparar los servicios
-        const serviciosParaEnviar = nuevoOrden.servicios.map(servicio => ({
-            id_servicio: servicio.id_servicio,
-            nombre: servicio.nombre,
-            precio: parseFloat(servicio.precio)
-        }));
+        if (!nuevoOrden.nombre_cliente) {
+            toast.error('El cliente es requerido');
+            return;
+        }
 
-        // Calcular el costo total
-        const costoTotal = serviciosParaEnviar.reduce((total, servicio) => 
-            total + (parseFloat(servicio.precio) || 0), 0);
+        if (nuevoOrden.servicios.length === 0) {
+            toast.error('Debe seleccionar al menos un servicio');
+            return;
+        }
 
         // Preparar el objeto de orden
+        const primerServicio = nuevoOrden.servicios[0];
         const ordenParaEnviar = {
             fecha_inicio: nuevoOrden.fecha_inicio,
             fecha_fin: nuevoOrden.fecha_fin,
             estado: nuevoOrden.estado.toLowerCase(),
-            costo_total: costoTotal,
-            prioridad: nuevoOrden.prioridad || 'Baja',
+            costo_total: parseFloat(nuevoOrden.costo_total),
+            prioridad: nuevoOrden.prioridad.charAt(0).toUpperCase() + 
+                      nuevoOrden.prioridad.slice(1).toLowerCase(),
             modelovehiculo: nuevoOrden.modelovehiculo,
-            modo_pago: nuevoOrden.modo_pago || 'Efectivo',
+            modo_pago: nuevoOrden.modo_pago,
             nombre_cliente: nuevoOrden.nombre_cliente,
-            id_empleado: nuevoOrden.id_empleado || null,
+            id_empleado: nuevoOrden.id_empleado,
             responsable: nuevoOrden.responsable,
-            servicio: serviciosParaEnviar[0]?.nombre || '',
-            servicios: serviciosParaEnviar
+            servicio: primerServicio.nombre,
+            id_servicio: primerServicio.id_servicio,
+            servicios_detalle: nuevoOrden.servicios
         };
 
-        console.log('Datos a enviar:', ordenParaEnviar); // Para debugging
+        console.log('Datos a enviar:', ordenParaEnviar);
 
         const response = await fetch(`${URL}ordenes`, {
             method: 'POST',
@@ -308,18 +311,18 @@ const ESTADOS = {
             body: JSON.stringify(ordenParaEnviar)
         });
 
+        const data = await response.json();
+
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.message || 'Error en la respuesta del servidor');
+            throw new Error(data.message || 'Error al crear la orden');
         }
 
-        await response.json();
         obtenerOrdenes();
         setMostrarModal(false);
         limpiarFormulario();
         toast.success('Orden creada exitosamente');
     } catch (error) {
-        console.error('Error detallado:', error);
+        console.error('Error al crear orden:', error);
         toast.error(error.message || 'Error al crear la orden');
     }
 };
