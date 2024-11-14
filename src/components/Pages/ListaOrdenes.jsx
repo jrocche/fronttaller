@@ -270,6 +270,9 @@ const ESTADOS = {
             return;
         }
 
+        // Agregar este log
+        console.log('Estado completo de nuevoOrden:', nuevoOrden);
+
         // Preparar los servicios
         const serviciosParaEnviar = nuevoOrden.servicios.map(servicio => ({
             id_servicio: servicio.id_servicio,
@@ -319,7 +322,7 @@ const ESTADOS = {
         limpiarFormulario();
         toast.success('Orden creada exitosamente');
     } catch (error) {
-        console.error('Error detallado:', error);
+        console.error('Error completo:', error);
         toast.error(error.message || 'Error al crear la orden');
     }
 };
@@ -621,29 +624,35 @@ const limpiarFormulario = () => {
                   />
                 </div>
 
-                <select 
-                  name="modo_pago" 
-                  value={nuevoOrden.modo_pago} 
-                  onChange={handleInputChange} 
-                  required
-                >
-                  <option value="Efectivo">Efectivo</option>
-                  <option value="Tarjeta">Tarjeta</option>
-                </select>
-                <input 
-                  type="number" 
-                  name="costo_total" 
-                  placeholder="Costo Total" 
-                  value={nuevoOrden.costo_total} 
-                  onChange={handleInputChange} 
-                  required 
-                />
-                <select name="prioridad" value={nuevoOrden.prioridad} onChange={handleInputChange} required>
-                  <option value="BAJA">Baja</option>
-                  <option value="MEDIA">Media</option>
-                  <option value="ALTA">Alta</option>
-                </select>
-                <input type="text" name="prioridad" placeholder="Prioridad" value={nuevoOrden.prioridad} onChange={handleInputChange} required />
+                <div className="orden-form-group">
+                  <label className="orden-label">Modo de Pago</label>
+                  <select 
+                    name="modo_pago" 
+                    className="orden-select"
+                    value={nuevoOrden.modo_pago} 
+                    onChange={handleInputChange} 
+                    required
+                  >
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Tarjeta">Tarjeta</option>
+                  </select>
+                </div>
+
+                <div className="orden-form-group">
+                  <label className="orden-label">Prioridad</label>
+                  <select 
+                    name="prioridad" 
+                    className="orden-select"
+                    value={nuevoOrden.prioridad} 
+                    onChange={handleInputChange} 
+                    required
+                  >
+                    <option value="BAJA">Baja</option>
+                    <option value="MEDIA">Media</option>
+                    <option value="ALTA">Alta</option>
+                  </select>
+                </div>
+
                 <input type="date" name="fecha_inicio" placeholder="Fecha de Inicio" value={nuevoOrden.fecha_inicio} onChange={handleInputChange} required />
                 <input type="date" name="fecha_fin" placeholder="Fecha de Fin" value={nuevoOrden.fecha_fin} onChange={handleInputChange} required />
                 <div className="form-group">
